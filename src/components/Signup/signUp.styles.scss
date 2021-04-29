@@ -1,0 +1,40 @@
+.sign-up{
+    max-width: 398px;
+    margin: 156px auto 0;
+
+    .signup-greeting{
+     font-weight: 700;
+    font-size: 28px;
+    line-height: 35px;
+    margin-bottom: 12px;
+    }
+
+    .signup-message{
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 17px;
+    max-width: 398px;
+    margin-bottom: 31px;
+    color: grey
+    }
+
+    .sign-up-button{
+          margin-top:20px
+    }
+
+    .have_account{
+        margin-top: 30px;
+        display: flex;
+        justify-content:center;
+    }
+    
+    .login-link{
+          margin-left: 10px;
+            a{
+                text-decoration: none;
+                color: grey
+            }
+        
+    }
+
+}
