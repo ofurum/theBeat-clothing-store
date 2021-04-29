@@ -15,6 +15,7 @@ const Women = ({products}) => {
             return (
               <div className="card-list" key={index}>
                 <Card
+                  product={product}
                   productName={product.name}
                   productDescription={product.description}
                   productId={product.id}

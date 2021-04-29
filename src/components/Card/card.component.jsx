@@ -1,5 +1,7 @@
 import React from 'react';
 import { Link } from "react-router-dom";
+import { addItem } from "../../redux/cart/cart.action";
+import {connect} from 'react-redux'
 import './card.styles.scss';
 
 
@@ -9,6 +11,8 @@ const Card = ({
   productId,
   productImg,
   productPrice,
+  addItem,
+  product
 }) => (
   <div className="card">
     <div className="item">
@@ -24,11 +28,14 @@ const Card = ({
       <div className="price-add">
         <h5 id="product-price">${productPrice}</h5>
         <span className="add-product">
-          <i className="fas fa-shopping-cart fa-2x"></i>
+          <i className="fas fa-shopping-cart fa-2x" onClick={() => addItem(product)}></i>
         </span>
       </div>
     </div>
   </div>
 );
 
-export default Card;
+const mapDispatchToProps = (dispatch) => ({
+  addItem: (item) => dispatch(addItem(item)),
+});
+export default connect(null,mapDispatchToProps)(Card);

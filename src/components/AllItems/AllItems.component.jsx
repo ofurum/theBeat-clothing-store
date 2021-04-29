@@ -8,11 +8,12 @@ import {addItem} from '../../redux/cart/cart.action'
 import './AllItems.styles.scss'
 
 
-const AllItems = ({products}) => {
+const AllItems = ({products, addItem}) => {
     console.log({products})
     return (
       <div className="items">
-        {products.map((product) => (
+        {
+          products.map((product) => (
           <div key={product.id} className="item">
             <Link to={`/products/${product.id}`}>
               <div className="product-img">
