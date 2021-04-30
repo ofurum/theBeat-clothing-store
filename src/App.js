@@ -10,6 +10,7 @@ import AccessoriesPage from '../src/pages/Accessories/accessories.page'
 import SignupPage from './pages/Signup/signup.page'
 import LoginPage from './pages/login/login.page'
 import CartPage from '../src/pages/Cartpage/Cart.page'
+import CheckoutPage from '../src/pages/CheckOut/checkout.page'
 
 function App() {
   
@@ -25,6 +26,7 @@ function App() {
         <Route path="/logIn" component={LoginPage} />
         <Route path="/register" component={SignupPage} />
         <Route path = '/cart' component={CartPage} />
+        <Route path='/check-out' component={CheckoutPage} />
       </Switch>
     </div>
   );

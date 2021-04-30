@@ -2,11 +2,18 @@ import React from 'react';
 import { Icon } from "react-materialize";
 import { NavLink } from "react-router-dom";
 import { createStructuredSelector } from "reselect";
-import {itemsCounted} from '../../../redux/cart/cart.selector'
+import { itemsCounted } from "../../../redux/cart/cart.selector";
+import {searchItems} from '../../../redux/directory/directory.selector'
+import TextField from "@material-ui/core/TextField";
+import {Autocomplete} from "@material-ui/lab";
 import { connect } from "react-redux"
+import {search} from '../../../redux/directory/directory.action'
 import './Navbar.styles.scss'
 
-const Navbar = ({itemsCount}) => (
+const Navbar = ({ itemsCount, search, searchItem }) => {
+  
+
+return (
   <nav className="navbar">
     <div className="nav-links">
       <ul>
@@ -25,13 +32,22 @@ const Navbar = ({itemsCount}) => (
             Men
           </NavLink>
         </li>
+        <li>
+          <input
+            type="search"
+            placeholder="search for product"
+            className="search-input"
+            onChange={(e) => search(e.target.value)}
+            value={searchItem}
+          />
+        </li>
       </ul>
     </div>
 
     <div className="nav-accessories">
       <div className="shopping-cart">
         <NavLink to="/cart">
-          <span className = 'cart'>
+          <span className="cart">
             <i className="fas fa-cart-plus"></i>
           </span>
           <span className="dot"></span>
@@ -44,9 +60,13 @@ const Navbar = ({itemsCount}) => (
       </div>
     </div>
   </nav>
-);
+);};
 
 const mapStateToProps = createStructuredSelector({
   itemsCount: itemsCounted,
+  searchItem: searchItems,
+});
+const mapDispatchToProps = (dispatch) => ({
+   search: (value) => dispatch(search(value))
 })
-export default connect(mapStateToProps)(Navbar);
+export default connect(mapStateToProps, mapDispatchToProps)(Navbar);
