@@ -6,7 +6,6 @@ import {Link} from 'react-router-dom'
 import {totalAmountOfItems,selectedCartItem,} from "../../redux/cart/cart.selector";
 import {createStructuredSelector} from 'reselect'
 import { usePaystackPayment } from 'react-paystack';
-import  { Redirect } from 'react-router-dom'
 
 const CheckoutPage = ({total, cartItems }) => {
 
@@ -20,9 +19,8 @@ const CheckoutPage = ({total, cartItems }) => {
   // you can call this function anything
   const onSuccess = (reference) => {
   // Implementation for whatever you want to do with reference and after success call.
-  console.log(reference);  
-  // return <Redirect to='/'/>
-
+    console.log(reference);  
+    window.location.href="/"
   };
   
   // you can call this function anything
