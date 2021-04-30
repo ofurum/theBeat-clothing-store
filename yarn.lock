@@ -9610,6 +9610,11 @@ react-materialize@^3.9.8:
   dependencies:
     classnames "^2.2.6"
 
+react-paystack@^3.0.3:
+  version "3.0.3"
+  resolved "https://registry.yarnpkg.com/react-paystack/-/react-paystack-3.0.3.tgz#016f4279e937cc844da0214d2d10a61c22471adb"
+  integrity sha512-w3mHQvCAHplOKode6cKxxSOwS6XNVWgOF3bjxmevFkcpHIvcuYBUOHqLlK8h3Pw7O7wqdfssm8bLPhYkvaNkRQ==
+
 react-redux@^7.2.4:
   version "7.2.4"
   resolved "https://registry.yarnpkg.com/react-redux/-/react-redux-7.2.4.tgz#1ebb474032b72d806de2e0519cd07761e222e225"

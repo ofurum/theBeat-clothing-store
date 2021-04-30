@@ -3,12 +3,46 @@ import Checkout from '../../components/Checkout/checkout.component'
 import './checkout.page.scss';
 import {connect} from 'react-redux'
 import {Link} from 'react-router-dom'
-import CustomButton from '../../components/CustomButton/customButton.component'
 import {totalAmountOfItems,selectedCartItem,} from "../../redux/cart/cart.selector";
 import {createStructuredSelector} from 'reselect'
+import { usePaystackPayment } from 'react-paystack';
+import  { Redirect } from 'react-router-dom'
 
 const CheckoutPage = ({total, cartItems }) => {
 
+  const config = {
+    reference: (new Date()).getTime(),
+    email: "user@example.com", // chnage to user email here 
+    amount: total*100,
+    publicKey: 'pk_test_888cd56ab76524f91a76b3cf86531b57e70a8bcb',
+  };
+  console.log({total})
+  // you can call this function anything
+  const onSuccess = (reference) => {
+  // Implementation for whatever you want to do with reference and after success call.
+  console.log(reference);  
+  // return <Redirect to='/'/>
+
+  };
+  
+  // you can call this function anything
+  const onClose = () => {
+  // implementation for  whatever you want to do when the Paystack dialog closed.
+  console.log('closed')
+  }
+  
+  const PaystackHookExample = () => {
+    const initializePayment = usePaystackPayment(config);
+    return (
+      <div>
+          <button 
+          className= 'custom-button'
+          onClick={() => {
+              initializePayment(onSuccess, onClose)
+          }}>Proceed to payment</button>
+      </div>
+    );
+  };
     return (
       <div className="checkout-page">
         <div className="back-to-cart">
@@ -39,10 +73,12 @@ const CheckoutPage = ({total, cartItems }) => {
 
           <div className="total">total:${total}</div>
           <div className="payment-button">
-            <CustomButton>Proceed to Payment</CustomButton>
+            <PaystackHookExample />
           </div>
         </div>
+       
       </div>
+
     );
 };
 const mapStateToProps = createStructuredSelector({
