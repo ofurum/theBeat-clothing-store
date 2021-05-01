@@ -10,8 +10,24 @@ import { connect } from "react-redux"
 import {search} from '../../../redux/directory/directory.action'
 import './Navbar.styles.scss'
 
+const  LogoutButton = () => {
+  const handleLogout = (e) => {
+    localStorage.clear()
+    window.location.href="/"
+  }
+  return (
+    <button onClick={handleLogout}>
+      Logout
+    </button>
+  )
+}
+
 const Navbar = ({ itemsCount, search, searchItem }) => {
-  
+
+const username = localStorage.getItem("username")
+
+console.log({username})
+
 
 return (
   <nav className="navbar">
@@ -19,7 +35,7 @@ return (
       <ul>
         <li>
           <NavLink activeClassName="selected" className="nav-link" exact to="/">
-            Home
+            Home 
           </NavLink>
         </li>
         <li>
@@ -55,8 +71,15 @@ return (
         </NavLink>
       </div>
 
-      <div className="user-account">
+      <div className="user-account nav-login">
+      { username ?
+        <>
+        <span className="no-wrap"> Hi {username} </span>
+         <LogoutButton />
+        </>
+        :
         <NavLink to="/logIn">Account</NavLink>
+      }
       </div>
     </div>
   </nav>

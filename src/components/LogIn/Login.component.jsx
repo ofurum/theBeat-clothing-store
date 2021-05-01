@@ -12,11 +12,51 @@ const initialState ={
 }
 
 const [userDetails, setUserDetails] = useState(initialState);
+const [isSubmitting,setIsSubmitting] = useState(false)
+const [errorMessage,setErrrorMessage] = useState(false)
+const [successMessage, setSuccessMessage] = useState(false)
 
 const handleChange = (e) => {
     const {name, value}= e.target
     setUserDetails(deatils =>({...deatils, [name]: value}))
 }
+
+const handleSubmit = (e) => {
+  e.preventDefault()
+  setErrrorMessage(false)
+  setIsSubmitting(true)
+  setSuccessMessage(false)
+  const xTag = localStorage.getItem("x-tag")
+    var myHeaders = new Headers();
+    myHeaders.append("Content-Type", "application/json");
+    myHeaders.append("x-tag", xTag);
+
+    var raw = JSON.stringify(userDetails);
+
+    var requestOptions = {
+      method: 'POST',
+      headers: myHeaders,
+      body: raw,
+      redirect: 'follow'
+    };
+
+    fetch("https://masters-prj.herokuapp.com/login", requestOptions)
+      .then(response => response.json())
+      .then(result => {
+        setIsSubmitting(false)
+        if (result.status === "success"){
+          window.location.href="/"
+          localStorage.setItem("token", result.data.jwt)
+          localStorage.setItem("username", result.data.user.username)
+          console.log(result)
+        } else if (result.status === "error") {
+          setErrrorMessage(result.message)
+        }
+      })
+      .catch(error => console.log('error', error));
+    console.log({userDetails})
+  };
+
      const { email, password } = userDetails;
     return (
       <div className="login">
@@ -24,7 +64,13 @@ const handleChange = (e) => {
         <span className="text">
           Welcome back to theBeat clothing store, sign in to continue
         </span>
-        <form>
+          {errorMessage &&
+            <p className="error alert">{errorMessage}</p>
+            }
+            {successMessage &&
+            <p className="success alert ">{successMessage}</p>
+            }
+        <form onSubmit={handleSubmit}>
           <FormInput
             type="email"
             value={email}
@@ -46,7 +92,7 @@ const handleChange = (e) => {
             <Link to="/reset-password">Forgot Password?</Link>
           </div>
           <div className="login-button">
-            <CustomButton>Log In</CustomButton>
+            <CustomButton>Log In{isSubmitting&& <img className="img" src="https://static.xx.fbcdn.net/rsrc.php/v3/yw/r/_2npUSCf6mV.gif" alt="" width="16" height="11"/> }</CustomButton>
           </div>
           <div className="session_change">
             Don't have an account?

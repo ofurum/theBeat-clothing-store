@@ -11,11 +11,11 @@ const CheckoutPage = ({total, cartItems }) => {
 
   const config = {
     reference: (new Date()).getTime(),
-    email: "user@example.com", // chnage to user email here 
-    amount: total*100,
+    email: "user@example.com", // change to user email here to personal email
+    amount: parseInt(total*100),
     publicKey: 'pk_test_888cd56ab76524f91a76b3cf86531b57e70a8bcb',
   };
-  console.log({total})
+  console.log("total",Math.round((total + Number.EPSILON) * 100) / 100*100)
   // you can call this function anything
   const onSuccess = (reference) => {
   // Implementation for whatever you want to do with reference and after success call.
@@ -40,7 +40,7 @@ const CheckoutPage = ({total, cartItems }) => {
           }}>Proceed to payment</button>
       </div>
     );
-  };
+  }; 
     return (
       <div className="checkout-page">
         <div className="back-to-cart">
