@@ -4,25 +4,23 @@ import CustomButton from '../CustomButton/customButton.component'
 import { Link } from "react-router-dom";
 import {connect} from 'react-redux';
 import { createStructuredSelector } from "reselect";
-import {signedUser} from '../../redux/user/user.action';
+import {signingUser} from '../../redux/user/user.action';
 import {signUpUserData} from '../../redux/user/user.selector'
 import './signUp.styles.scss';
 
-const SignUp = ({ signUpUserData, signedUser }) => {
+const SignUp = ({ signUpUserData, signingUser }) => {
   const [newUser, setNewUser] = useState(signUpUserData);
   console.log({ newUser });
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-   useEffect(() => {
-     const user = signedUser();
-      console.log(user)
-   }, []);
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    setIsSubmitting(false);
+    console.log('submitting')
+    signingUser(newUser);
     console.log("submitted");
   };
-
+  
   const handleChange = (e) => {
     const { name, value } = e.target;
 
@@ -96,4 +94,8 @@ const SignUp = ({ signUpUserData, signedUser }) => {
 const mapStateToProps = createStructuredSelector({
   signUpUserData: signUpUserData,
 });
-export default connect(mapStateToProps, { signedUser })(SignUp);
+
+const mapDispatchToProps = (dispatch) => ({
+  signingUser: (user) => dispatch(signingUser(user)),
+});
+export default connect(mapStateToProps, mapDispatchToProps)(SignUp);

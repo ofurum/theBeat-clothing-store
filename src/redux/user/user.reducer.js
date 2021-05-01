@@ -4,17 +4,20 @@ const INITIALIZE_STATE = {
       user,
 }
 
-const registerUserReducer = (state = INITIALIZE_STATE, action) => {
+const storeUser = (state, {payload}) => {
+    console.log(state, payload)
+    return {
+        ...state, user: payload
+    }
+}
+
+const userReducer = (state = INITIALIZE_STATE, action) => {
     if(action.type === registerUserTypes.REGISTER_USER_TYPES){
-       return {
-         ...state,
-         registerUserDetails: state.user,
-         registering: true,
-       };
+       return storeUser(state, action)
 
     }
     return state
 }
 
 
-export default registerUserReducer
+export default userReducer

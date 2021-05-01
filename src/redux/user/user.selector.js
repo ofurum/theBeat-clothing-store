@@ -1,6 +1,6 @@
 import { createSelector } from "reselect";
 
-const signUpSelector = (state) => state.registerUser;
+const signUpSelector = (state) => state.user;
 
 export const signUpUserData = createSelector(
   signUpSelector,

@@ -1,18 +1,27 @@
 import axios from 'axios';
 import {registerUserTypes} from './user.type'
 
-export const signedUser = (userData) => {
-        return async (dispatch) =>{
+export const signingUser = (userData) => {
+    console.log("signin", userData)
+    return async (dispatch) =>{
             try{
                 const xTag = localStorage.getItem("x-tag");
                 console.log("x-tag ======", xTag)
-                const signupData = await axios.post(
+                const {data:{status, data}} = await axios.post(
                   "https://masters-prj.herokuapp.com/register", userData,
                   {headers:{"x-tag": xTag}}
                 );
-                console.log('>>>Data',signupData)
-                dispatch(setSignup(signupData));
+                console.log(status, data);
+                if(status === "success"){
+                    dispatch(setSignup(data));
+                }else{
+                    console.log("new sign up");
+                }
+                
+                
+                
             }catch(error){
+                console.log(error)
                console.log('currentUser>>', error)
          } 
         }
