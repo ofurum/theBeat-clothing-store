@@ -1,0 +1,4 @@
+ export const fetchIntilized  = {
+   FETCH_INITIALIZE: "FETCH_INITIALIZE",
+   SET_FETCTED_INTILIZE: "FETCHED_INITIALIZE",
+ }; 

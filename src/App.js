@@ -1,5 +1,7 @@
-
+import React,{useEffect} from 'react';
 // import './App.css';
+import { connect } from "react-redux";
+import { createStructuredSelector } from "reselect";
 import { Switch, Route, Redirect } from "react-router-dom";
 import HomePage from './pages/homepage/hompage.pages'
 import ShowProduct from '../src/components/ShowProduct/showProduct.component'
@@ -11,9 +13,15 @@ import SignupPage from './pages/Signup/signup.page'
 import LoginPage from './pages/login/login.page'
 import CartPage from '../src/pages/Cartpage/Cart.page'
 import CheckoutPage from '../src/pages/CheckOut/checkout.page'
+//import { createStructuredSelector } from "reselect";
+import  {fetchIntilize} from '../src/redux/Initilize/initilize.action'
+import {initializeFetchedData} from '../src/redux/Initilize/initilize.selector'
+const App = ({ data, fetchIntilize }) => {
+  useEffect(() => {
+    const xTag = fetchIntilize();
+    return xTag;
+  }, []);
 
-function App() {
-  
   return (
     <div className="App">
       <Switch>
@@ -25,11 +33,15 @@ function App() {
         <Route exact path="/products/:id" component={ShowProduct} />
         <Route path="/logIn" component={LoginPage} />
         <Route path="/register" component={SignupPage} />
-        <Route path = '/cart' component={CartPage} />
-        <Route path='/check-out' component={CheckoutPage} />
+        <Route path="/cart" component={CartPage} />
+        <Route path="/check-out" component={CheckoutPage} />
       </Switch>
     </div>
   );
-}
+};
 
-export default App;
+const mapStateToProps = createStructuredSelector({
+  data: initializeFetchedData,
+});
+
+export default connect(mapStateToProps, { fetchIntilize })(App);
