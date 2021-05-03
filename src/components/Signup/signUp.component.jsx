@@ -2,9 +2,6 @@ import React,{useState, useEffect} from 'react';
 import FormInput from '../Form/form.component'
 import CustomButton from '../CustomButton/customButton.component'
 import { Link } from "react-router-dom";
-import {connect} from 'react-redux';
-import { createStructuredSelector } from "reselect";
-import {signingUser} from '../../redux/user/user.action';
 import './signUp.styles.scss';
 
 const signUpUserData= {

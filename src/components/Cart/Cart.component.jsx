@@ -5,10 +5,9 @@ import './cart.style.scss';
 
 const Cart  = ({image,name,quantity, price, cartItem, removeProduct}) => {
       return (
-       <div className="cart-scroll">
         <div className="list-cart">
               <div className="image-container">
-                <img src={image} alt="product-image" />
+                <img src={image} alt="product-image" style={{ height: '20rem'}}/>
               </div>
               <span className="name">{name}</span>
               <span className="quantity">{quantity}</span>
@@ -21,7 +20,6 @@ const Cart  = ({image,name,quantity, price, cartItem, removeProduct}) => {
                 &#9747;
               </div>
         </div>
-      </div>
       );
 
 }

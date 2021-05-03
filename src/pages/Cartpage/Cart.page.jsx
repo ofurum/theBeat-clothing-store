@@ -60,12 +60,19 @@ const CartPage = ({ cartItems }) => {
           <span>remove</span>
         </div>
       </div>
-      {cartItems.map((cartItem, index) => (
-        <div key={index}>
-          <Cart image={cartItem.img} name={cartItem.name} quantity={cartItem.quantity} price={cartItem.price} cartItem={cartItem}/>
-        </div>
-      ))}
-
+      <div className="cart-scroll">
+        {cartItems.map((cartItem, index) => (
+          <div key={index}>
+            <Cart
+              image={cartItem.img}
+              name={cartItem.name}
+              quantity={cartItem.quantity}
+              price={cartItem.price}
+              cartItem={cartItem}
+            />
+          </div>
+        ))}
+      </div>
       <div className="check-out-button">
         <CustomButton>
           <Link to="/check-out">Check Out</Link>
