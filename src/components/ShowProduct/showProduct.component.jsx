@@ -37,7 +37,7 @@ const ShowProduct = ({products, match, addItem}) => {
                 </span>
                 <div class="review-section">
                   <label for="w3review">Give your review on this product:</label>
-                  <textarea id="w3review" name="w3review" rows="5" cols="40" className="review-textarea">
+                  <textarea id="w3review" name="w3review" rows="5" cols="30" className="review-textarea">
                    
                   </textarea>
                 </div>

@@ -50,6 +50,7 @@
                         color: grey;
                          .review-textarea{
                                margin-top: 20px; 
+                               padding: 10px
                          }
                      }
                  }
@@ -58,7 +59,7 @@
             }
             .similar-products {
             height: 40em;
-            overflow: scroll;
+            overflow-y: scroll;
             font-family: 'Lato', sans-serif;
             margin: 0 3em;
             background-color: white;
@@ -69,13 +70,18 @@
             }
 
               .item{
-
+                  padding: 10px;
                 .product-img{
                 
                     .product-img-1{
                         height: 20rem;
                     }
                 }
+            }
+            .price-add{
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
             }
             }
 
