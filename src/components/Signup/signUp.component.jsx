@@ -66,18 +66,14 @@ const SignUp = () => {
   };
   const { username, email, password, firstName, lastName, address } = newUser;
   return (
-    <div className="sign-up">
+    <div className="sign-up animate__animated animate__fadeInUp">
       <p className="signup-greeting">Hello,</p>
       <span className="signup-message">
         Welcome to theBeat clothing store, Let's get you started by creating
         your account
       </span>
-      {errorMessage &&
-      <p className="error alert">{errorMessage}</p>
-      }
-      {successMessage &&
-      <p className="success alert ">{successMessage}</p>
-      }
+      {errorMessage && <p className="error alert">{errorMessage}</p>}
+      {successMessage && <p className="success alert ">{successMessage}</p>}
       <form onSubmit={handleSubmit}>
         <FormInput
           type="text"
@@ -129,7 +125,18 @@ const SignUp = () => {
           required
         />
         <div className="sign-up-button">
-          <CustomButton>Sign Up{isSubmitting&& <img className="img" src="https://static.xx.fbcdn.net/rsrc.php/v3/yw/r/_2npUSCf6mV.gif" alt="" width="16" height="11"/> }</CustomButton>
+          <CustomButton>
+            Sign Up
+            {isSubmitting && (
+              <img
+                className="img"
+                src="https://static.xx.fbcdn.net/rsrc.php/v3/yw/r/_2npUSCf6mV.gif"
+                alt=""
+                width="16"
+                height="11"
+              />
+            )}
+          </CustomButton>
         </div>
       </form>
       <div className="have_account">

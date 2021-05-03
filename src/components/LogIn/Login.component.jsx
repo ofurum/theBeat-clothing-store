@@ -59,17 +59,13 @@ const handleSubmit = (e) => {
 
      const { email, password } = userDetails;
     return (
-      <div className="login">
+      <div className="login animate__animated animate__fadeInUp">
         <p className="hello">Welcome,</p>
         <span className="text">
           Welcome back to theBeat clothing store, sign in to continue
         </span>
-          {errorMessage &&
-            <p className="error alert">{errorMessage}</p>
-            }
-            {successMessage &&
-            <p className="success alert ">{successMessage}</p>
-            }
+        {errorMessage && <p className="error alert">{errorMessage}</p>}
+        {successMessage && <p className="success alert ">{successMessage}</p>}
         <form onSubmit={handleSubmit}>
           <FormInput
             type="email"
@@ -92,7 +88,18 @@ const handleSubmit = (e) => {
             <Link to="/reset-password">Forgot Password?</Link>
           </div>
           <div className="login-button">
-            <CustomButton>Log In{isSubmitting&& <img className="img" src="https://static.xx.fbcdn.net/rsrc.php/v3/yw/r/_2npUSCf6mV.gif" alt="" width="16" height="11"/> }</CustomButton>
+            <CustomButton>
+              Log In
+              {isSubmitting && (
+                <img
+                  className="img"
+                  src="https://static.xx.fbcdn.net/rsrc.php/v3/yw/r/_2npUSCf6mV.gif"
+                  alt=""
+                  width="16"
+                  height="11"
+                />
+              )}
+            </CustomButton>
           </div>
           <div className="session_change">
             Don't have an account?
