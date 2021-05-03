@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from "react-redux";
 import { addItem } from "../../redux/cart/cart.action";
+import CustomButton from '../../components/CustomButton/customButton.component'
 import { createStructuredSelector } from "reselect";
 import { getAllProducts } from "../../redux/directory/directory.selector";
 import BaseLayout from "../../components/BaseLayout/baseLayout.component";
@@ -40,6 +41,7 @@ const ShowProduct = ({products, match, addItem}) => {
                   <textarea id="w3review" name="w3review" rows="5" cols="30" className="review-textarea">
                    
                   </textarea>
+                  <button className="review-button">submit</button>
                 </div>
                 <div class="list-reviews">
                       
