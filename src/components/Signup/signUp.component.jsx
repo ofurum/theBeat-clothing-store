@@ -13,6 +13,7 @@ const signUpUserData= {
   lastName: "",
   email: "",
   password: "",
+  address: "",
 };
 
 const SignUp = () => {
@@ -63,7 +64,7 @@ const SignUp = () => {
 
     setNewUser((user) => ({ ...user, [name]: value }));
   };
-  const { username, email, password, firstName, lastName } = newUser;
+  const { username, email, password, firstName, lastName, address } = newUser;
   return (
     <div className="sign-up">
       <p className="signup-greeting">Hello,</p>
@@ -117,6 +118,14 @@ const SignUp = () => {
           name="password"
           handleChange={handleChange}
           label="Password"
+          required
+        />
+        <FormInput
+          type="text"
+          value={address}
+          name="address"
+          handleChange={handleChange}
+          label="Home Address"
           required
         />
         <div className="sign-up-button">
