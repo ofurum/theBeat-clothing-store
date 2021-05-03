@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{ useEffect } from 'react';
 import Checkout from '../../components/Checkout/checkout.component'
 import './checkout.page.scss';
 import {connect} from 'react-redux'
@@ -9,6 +9,13 @@ import { usePaystackPayment } from 'react-paystack';
 
 const CheckoutPage = ({total, cartItems }) => {
 
+  useEffect(()=>{
+    if (!localStorage.getItem("token")){
+    window.location.href="/login"
+  } 
+  },[])
+
+  
   const config = {
     reference: (new Date()).getTime(),
     email: "user@example.com", // change to user email here to personal email

@@ -8,6 +8,13 @@ import { selectedCartItem } from "../../redux/cart/cart.selector";
 
 import './Cart.page.scss';
 
+const handleCheckout = () => {
+  if (localStorage.getItem("token")){
+    window.location.href="/check-out"
+  } else {
+    window.location.href="/login"
+  }
+}
 const CartPage = ({ cartItems }) => {
   if(cartItems.length < 1) {
     return (
@@ -74,9 +81,9 @@ const CartPage = ({ cartItems }) => {
         ))}
       </div>
       <div className="check-out-button">
-        <CustomButton>
-          <Link to="/check-out">Check Out</Link>
-        </CustomButton>
+       
+          <button className="btn" onClick={handleCheckout} >Check Out</button>
+        
       </div>
     </div>
   );
