@@ -105,8 +105,16 @@
         background: transparent;
         color: white;
         border: none;
-        font-size: 14px;
-        font-family: "Quicksand", sans-serif
+        margin-top: 5px;
+        font-size: 16px;
+        font-family: "Quicksand", sans-serif;
+        cursor: pointer;
+
+        &:hover{
+            background: transparent;
+            color: black;
+            transition: 0.5s;
+         }
         }
     }
 }
