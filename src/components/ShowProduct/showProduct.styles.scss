@@ -4,7 +4,7 @@
   justify-content: center;
   align-items: center;
   border-top: 4px solid black;
-
+  
             .item-wrapper {
             background-color: white;
             width: 50em;
@@ -63,7 +63,27 @@
             font-family: 'Lato', sans-serif;
             margin: 0 3em;
             background-color: white;
+            scrollbar-width: thin;
+            
+            &::-webkit-scrollbar {
+                        width: 10px;
+                        }
 
+                        /* Track */
+                        &::-webkit-scrollbar-track {
+                        border: none
+                        }
+                        
+                        /* Handle */
+                        &::-webkit-scrollbar-thumb {
+                        background: grey; 
+                        border-radius: 10px;
+                        }
+
+                        /* Handle on hover */
+                        &::-webkit-scrollbar-thumb:hover {
+                        background: #b30000; 
+                }
             a {
                 text-decoration: none;
                 color: #000
@@ -72,10 +92,14 @@
               .item{
                   padding: 10px;
                 .product-img{
-                
+                    display: flex;
+                    justify-content:center;
                     .product-img-1{
                         height: 20rem;
                     }
+                }
+                .product-details{
+                    text-align: center;
                 }
             }
             .price-add{

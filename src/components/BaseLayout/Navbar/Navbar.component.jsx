@@ -16,7 +16,7 @@ const  LogoutButton = () => {
     window.location.href="/"
   }
   return (
-    <button onClick={handleLogout}>
+    <button onClick={handleLogout} className="logout-button">
       Logout
     </button>
   )
@@ -73,17 +73,17 @@ return (
 
       <div className="user-account nav-login">
       { username ?
-        <>
-        <span className="no-wrap"> Hi {username} </span>
+        <div className="logout">
+        <span className="no-wrap"> Hi, {username} </span>
          <LogoutButton />
-        </>
+        </div>
         :
         <NavLink to="/logIn">Account</NavLink>
       }
       </div>
     </div>
   </nav>
-);};
+)};
 
 const mapStateToProps = createStructuredSelector({
   itemsCount: itemsCounted,
