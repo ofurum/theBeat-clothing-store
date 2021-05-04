@@ -26,13 +26,11 @@ const AllItems = ({ addItem}) => {
 fetch("https://masters-prj.herokuapp.com/products", requestOptions)
   .then(response => response.json())
   .then(result => {
-    console.log(result)
     setProducts(result.data)
   })
   .catch(error => console.log('error', error));
   },[])
 
-    console.log({products})
     if (products){
     return (
       <div className="items">
