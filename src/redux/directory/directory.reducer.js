@@ -1,8 +1,20 @@
  import products from '../../Data/data'
  import {directoryDataType, SearchProduct} from './directory.types'
+ 
+ let allproducts
+
+
+ products.then(result => {
+   allproducts = result.data
+ })
+
+console.log({allproducts})
+
+
+ 
 
  const INITIALIZE_STATE = {
-     products: products,
+     products: allproducts,
  }
 
 const filterProduct = (state, {payload}) => {
