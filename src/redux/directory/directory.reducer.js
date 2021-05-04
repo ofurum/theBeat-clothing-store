@@ -11,10 +11,8 @@
 console.log({allproducts})
 
 
- 
-
  const INITIALIZE_STATE = {
-     products: allproducts,
+     products: products,
  }
 
 const filterProduct = (state, {payload}) => {

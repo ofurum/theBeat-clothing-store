@@ -1,4 +1,4 @@
-const token = localStorage.getItem("token")
+const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InR1bmRlQGdtYWlsLmNvbSIsInVzZXIiOiI2MDhkNGY5ZDhkNWExNTAwMjE2MjJlYTYiLCJpYXQiOjE2MjAxNDc0NzcsImV4cCI6MTYyMDE1MTA3NywiYXVkIjoiZW5lcmd5ZGlyZWN0LmNvbSIsImlzcyI6ImVuZXJneS1kaXJlY3QiLCJzdWIiOiI2MDhkNGY5ZDhkNWExNTAwMjE2MjJlYTYifQ.MJeLhYgzaRP7d7uxQXVDl3H-i77bsAbLjgo_V-ezvvI"
 // const products = [
 //   {
 //     id: 1,
