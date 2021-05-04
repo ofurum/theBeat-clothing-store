@@ -27,7 +27,8 @@ export const signingUser = (userData) => {
         }
 }
 
-function setSignup(user){
+export function setSignup(user){
+    console.log('it reach')
     return {
       type: registerUserTypes.REGISTER_USER_TYPES,
       payload: user,

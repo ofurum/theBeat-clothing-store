@@ -9,3 +9,9 @@ export const removeProduct = (product) => ({
     type: CARTTYPE.REMOVE_PRODUCT,
     payload: product,
 })
+
+export function addItemToCart(item) {
+  return (dispatch) => {
+    dispatch(addItem(item))
+  }
+}

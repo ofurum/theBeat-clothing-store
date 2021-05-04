@@ -4,31 +4,15 @@ import { createStructuredSelector } from "reselect";
 import { getAllProducts } from "../../redux/directory/directory.selector"
 import { Link } from "react-router-dom";
 import { Icon } from "react-materialize";
-import {addItem} from '../../redux/cart/cart.action'
+import { fetchProductData } from "../../redux/directory/directory.action"
+import {addItem, addItemToCart} from '../../redux/cart/cart.action'
 import './AllItems.styles.scss'
 
 
-const AllItems = ({ addItem}) => {
-    const token = localStorage.getItem("token")
-    const [products,setProducts] = useState("")
+const AllItems = ({ addItemToCart,products,fetchProductData,addItem}) => {
+    const xTag = localStorage.getItem("x-tag")
     useEffect(()=>{
-      var myHeaders = new Headers();
-      myHeaders.append("x-tag", "ODE1ZjM1YWZlNTI4Y2QwMThkNmJhMTI1NzNkMjk1YjRjZTdhZWUwODNmYzEyNTMzM2U2YThhZWM2YmIxZWFjZC8vLy8vLzc5NDY=");
-      myHeaders.append("Authorization",`Bearer ${token}`)
-
-
-    var requestOptions = {
-      method: 'GET',
-      headers: myHeaders,
-      redirect: 'follow'
-    };
-
-fetch("https://masters-prj.herokuapp.com/products", requestOptions)
-  .then(response => response.json())
-  .then(result => {
-    setProducts(result.data)
-  })
-  .catch(error => console.log('error', error));
+      fetchProductData()
   },[])
 
     if (products){
@@ -51,7 +35,7 @@ fetch("https://masters-prj.herokuapp.com/products", requestOptions)
               <span className="add-product">
                 <i
                   className="fas fa-shopping-cart fa-2x"
-                  onClick={() => addItem(product)}
+                  onClick={() => addItemToCart(product)}
                 ></i>
               </span>
             </div>
@@ -67,12 +51,20 @@ fetch("https://masters-prj.herokuapp.com/products", requestOptions)
     }
 }
 
-const mapStateToProps = createStructuredSelector({
-  products: getAllProducts,
-});
 
-const mapDispatchToProps = (dispatch) => ({
-  addItem: (item) => dispatch(addItem(item)),
-});
+const mapStateToProps = (state) => {
+  let products = state.directory.products
 
-export default connect(mapStateToProps, mapDispatchToProps)(AllItems);
+  return {
+    products
+  };
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+  addItemToCart: (item) => addItemToCart(item),
+  fetchProductData
+  }
+};
+
+export default connect(mapStateToProps,{fetchProductData, addItemToCart})(AllItems);

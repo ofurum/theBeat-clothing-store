@@ -9,7 +9,7 @@ import {fetchIntilizeReducer} from './Initilize/initilize.reducer'
 const persistConfig = {
   key: "root",
   storage,
-  whitelist: ["cart", "fetchIntilize"],
+  whitelist: ["cart", "fetchIntilize","user"],
 };
 
 const rootReducer = combineReducers({

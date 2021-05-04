@@ -2,7 +2,9 @@ import React, { useState, useEffect } from "react";
 import FormInput from "../Form/form.component";
 import CustomButton from "../CustomButton/customButton.component";
 import { Link } from "react-router-dom";
+import {connect} from 'react-redux'
 import "./signUp.styles.scss";
+import { setSignup } from "../../redux/user/user.action";
 
 const signUpUserData = {
   username: "",
@@ -13,12 +15,11 @@ const signUpUserData = {
   address: "",
 };
 
-const SignUp = () => {
+const SignUp = ({ setSignup }) => {
   const [newUser, setNewUser] = useState(signUpUserData);
   const [errorMessage, setErrrorMessage] = useState(false);
   const [successMessage, setSuccessMessage] = useState(false);
 
-  console.log({ newUser });
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleSubmit = (e) => {
@@ -46,6 +47,7 @@ const SignUp = () => {
         setIsSubmitting(false);
         if (result.status === "success") {
           setSuccessMessage("your account was created succesfully");
+            setSignup(result.data)
           console.log(result);
         } else if (result.status === "error") {
           setErrrorMessage(
@@ -54,7 +56,6 @@ const SignUp = () => {
         }
       })
       .catch((error) => console.log("error", error));
-    console.log({ newUser });
   };
 
   const handleChange = (e) => {
@@ -147,4 +148,10 @@ const SignUp = () => {
   );
 };
 
-export default SignUp;
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    setSignup: (data) => dispatch(setSignup(data))
+  }
+}
+export default connect (null,{ setSignup })(SignUp);

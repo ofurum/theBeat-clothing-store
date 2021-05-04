@@ -1,11 +1,13 @@
 import React,{useState} from 'react';
 import FormInput from '../Form/form.component';
 import { Link } from "react-router-dom";
+import {connect} from 'react-redux'
+import { setSignup } from "../../redux/user/user.action";
 import CustomButton from '../CustomButton/customButton.component'
 import './LogIn.styles.scss';
 
 
-const Login = () => {
+const Login = ({setSignup}) => {
 const initialState ={
     email: '',
     password: '',
@@ -45,9 +47,10 @@ const handleSubmit = (e) => {
       .then(result => {
         setIsSubmitting(false)
         if (result.status === "success"){
-          window.location.href="/"
           localStorage.setItem("token", result.data.jwt)
           localStorage.setItem("username", result.data.user.username)
+          setSignup(result.data)
+          window.location.href="/"
           console.log(result)
         } else if (result.status === "error") {
           setErrrorMessage(result.message)
@@ -112,4 +115,10 @@ const handleSubmit = (e) => {
     );
 }
 
-export default Login
+const mapDispatchToProps = (dispatch) => {
+  return {
+    setSignup: (data) => dispatch(setSignup(data))
+  }
+}
+
+export default connect(null,{setSignup})(Login)

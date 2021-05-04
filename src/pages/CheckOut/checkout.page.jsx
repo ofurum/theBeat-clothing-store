@@ -4,10 +4,11 @@ import './checkout.page.scss';
 import {connect} from 'react-redux'
 import {Link} from 'react-router-dom'
 import {totalAmountOfItems,selectedCartItem,} from "../../redux/cart/cart.selector";
+import { signUpUserData } from "../../redux/user/user.selector"
 import {createStructuredSelector} from 'reselect'
 import { usePaystackPayment } from 'react-paystack';
 
-const CheckoutPage = ({total, cartItems }) => {
+const CheckoutPage = ({total, cartItems,userData }) => {
 
   useEffect(()=>{
     if (!localStorage.getItem("token")){
@@ -15,10 +16,11 @@ const CheckoutPage = ({total, cartItems }) => {
   } 
   },[])
 
+console.log("data",userData)
   
   const config = {
     reference: (new Date()).getTime(),
-    email: "user@example.com", // change to user email here to personal email
+    email: userData.email, // change to user email here to personal email
     amount: parseInt(total*100),
     publicKey: 'pk_test_888cd56ab76524f91a76b3cf86531b57e70a8bcb',
   };
@@ -89,5 +91,6 @@ const CheckoutPage = ({total, cartItems }) => {
 const mapStateToProps = createStructuredSelector({
   total: totalAmountOfItems,
   cartItems: selectedCartItem,
+  userData: signUpUserData
 });
 export default connect(mapStateToProps)(CheckoutPage);

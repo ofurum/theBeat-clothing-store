@@ -71,8 +71,8 @@ const CartPage = ({ cartItems }) => {
         {cartItems.map((cartItem, index) => (
           <div key={index}>
             <Cart
-              image={cartItem.img}
-              name={cartItem.name}
+              image={cartItem.productImages[0].url}
+              name={cartItem.productName}
               quantity={cartItem.quantity}
               price={cartItem.price}
               cartItem={cartItem}
