@@ -1,15 +1,16 @@
 import React from "react";
-
+import TextField from "@material-ui/core/TextField";
 import "./form.styles.scss";
 
 const FormInput = ({ handleChange, label, ...otherProps }) => (
   <div className="group">
-    <input
+    {/* <input
       className="form-input"
       onChange={handleChange}
       {...otherProps}
-    />
-    {label ? (
+    /> */}
+   <TextField id="outlined-basic" label={label} variant="outlined" style={{width: '100%'}}/>
+    {/* {label ? (
       <label
         className={`${
           otherProps.value.length ? "shrink" : ""
@@ -17,7 +18,7 @@ const FormInput = ({ handleChange, label, ...otherProps }) => (
       >
         {label}
       </label>
-    ) : null}
+    ) : null} */}
   </div>
 );
 
