@@ -29,7 +29,7 @@ export default class BaseLayout extends Component {
     const index = this.state.index % classNames.length;
     const className = classNames[index];
     return (
-      <div>
+      <div className='nav-header'>
         <div className={className}>
           <Navbar />
           <Header />
