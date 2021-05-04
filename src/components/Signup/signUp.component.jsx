@@ -46,6 +46,17 @@ const SignUp = () => {
         setIsSubmitting(false);
         if (result.status === "success") {
           setSuccessMessage("your account was created succesfully");
+          setNewUser({
+            username: "",
+            firstName: "",
+            lastName: "",
+            email: "",
+            password: "",
+            address: "",
+          });
+          setInterval( () => {
+            window.location.href = "/logIn"
+          }, 1000);
           console.log(result);
         } else if (result.status === "error") {
           setErrrorMessage(

@@ -48,6 +48,7 @@ const handleSubmit = (e) => {
           window.location.href="/"
           localStorage.setItem("token", result.data.jwt)
           localStorage.setItem("username", result.data.user.username)
+          localStorage.setItem("address", result.data.user.address)
           console.log(result)
         } else if (result.status === "error") {
           setErrrorMessage(result.message)

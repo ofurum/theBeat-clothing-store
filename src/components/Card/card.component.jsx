@@ -18,7 +18,7 @@ const Card = ({
     <div className="item">
       <Link to={`/products/${productId}`}>
         <div className="product-img">
-          <img alt={productName} src={productImg} />
+          <img alt={productName} src={productImg} style={{objectFit: 'cover'}}/>
         </div>
         <div className="product-details">
           <h1 id="product-name">{productName}</h1>

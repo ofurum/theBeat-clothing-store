@@ -1,6 +1,7 @@
 import React,{useEffect,useState} from 'react';
 import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
+import Loading from "../../components/Load/load.component";
 import { getAllProducts } from "../../redux/directory/directory.selector";
 import Card from "../Card/card.component";
 
@@ -51,7 +52,7 @@ fetch("https://masters-prj.herokuapp.com/products?category=women", requestOption
   }
   else {
     return (
-      <>No Products available now</>
+      <Loading />
     )
   }
 }

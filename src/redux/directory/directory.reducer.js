@@ -1,33 +1,31 @@
  import products from '../../Data/data'
- import {directoryDataType, SearchProduct} from './directory.types'
+ import {setProductData, SearchProduct} from './directory.types'
  
- let allproducts
 
 
- products.then(result => {
-   allproducts = result.data
- })
 
-console.log({allproducts})
 
 
  const INITIALIZE_STATE = {
-     products: products,
+     products: null,
  }
 
 const filterProduct = (state, {payload}) => {
   if(!payload.length) return {...state, products: INITIALIZE_STATE.products}
-  return {...state,products:state.products.filter((product) =>
-    product.name.toLowerCase().includes(payload.toLowerCase())
-  )}
+  return {
+    ...state,
+    products: state.products.filter((product) =>
+      product.productName.toLowerCase().includes(payload.toLowerCase())
+    ),
+  };
 }
 const directoryReducer = (state = INITIALIZE_STATE, action) => {
   //const search = state.products.filter(product => product.name.toLowerCase().includes(action.type))
-  if (action.type === directoryDataType.DIRECTORY_DATA) {
+  if (action.type === setProductData.SET_PRODUCT_DATA) {
     return {
       ...state,
-      products: state.products,
-    }
+      products: action.payload,
+    };
   };
   if(action.type === SearchProduct.SEARCH_PRODUCT){
     return filterProduct(state, action)

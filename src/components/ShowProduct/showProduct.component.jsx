@@ -5,7 +5,7 @@ import CustomButton from '../../components/CustomButton/customButton.component'
 import { createStructuredSelector } from "reselect";
 import { getAllProducts } from "../../redux/directory/directory.selector";
 import BaseLayout from "../../components/BaseLayout/baseLayout.component";
-import { Link } from "react-router-dom";
+import Loading from '../../components/Load/load.component'
 import './showProduct.styles.scss';
 
 

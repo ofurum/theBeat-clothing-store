@@ -1,4 +1,8 @@
-const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InR1bmRlQGdtYWlsLmNvbSIsInVzZXIiOiI2MDhkNGY5ZDhkNWExNTAwMjE2MjJlYTYiLCJpYXQiOjE2MjAxNDc0NzcsImV4cCI6MTYyMDE1MTA3NywiYXVkIjoiZW5lcmd5ZGlyZWN0LmNvbSIsImlzcyI6ImVuZXJneS1kaXJlY3QiLCJzdWIiOiI2MDhkNGY5ZDhkNWExNTAwMjE2MjJlYTYifQ.MJeLhYgzaRP7d7uxQXVDl3H-i77bsAbLjgo_V-ezvvI"
+import axios from "axios";
+
+const token =
+  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InR1bmRlQGdtYWlsLmNvbSIsInVzZXIiOiI2MDhkNGY5ZDhkNWExNTAwMjE2MjJlYTYiLCJpYXQiOjE2MjAxNDc0NzcsImV4cCI6MTYyMDE1MTA3NywiYXVkIjoiZW5lcmd5ZGlyZWN0LmNvbSIsImlzcyI6ImVuZXJneS1kaXJlY3QiLCJzdWIiOiI2MDhkNGY5ZDhkNWExNTAwMjE2MjJlYTYifQ.MJeLhYgzaRP7d7uxQXVDl3H-i77bsAbLjgo_V-ezvvI";
+
 // const products = [
 //   {
 //     id: 1,
@@ -231,19 +235,29 @@ const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InR1bmRlQGdtYWls
 //   },
 // ];
 var myHeaders = new Headers();
-      myHeaders.append("x-tag", "ODE1ZjM1YWZlNTI4Y2QwMThkNmJhMTI1NzNkMjk1YjRjZTdhZWUwODNmYzEyNTMzM2U2YThhZWM2YmIxZWFjZC8vLy8vLzc5NDY=");
-      myHeaders.append("Authorization",`Bearer ${token}`)
+myHeaders.append(
+  "x-tag",
+  "ODE1ZjM1YWZlNTI4Y2QwMThkNmJhMTI1NzNkMjk1YjRjZTdhZWUwODNmYzEyNTMzM2U2YThhZWM2YmIxZWFjZC8vLy8vLzc5NDY="
+);
+myHeaders.append("Authorization", `Bearer ${token}`);
 
+var requestOptions = {
+  method: "GET",
+  headers: myHeaders,
+  redirect: "follow",
+};
 
-    var requestOptions = {
-      method: 'GET',
-      headers: myHeaders,
-      redirect: 'follow'
-    };
-
-const products = fetch("https://masters-prj.herokuapp.com/products", requestOptions)
-  .then(response => response.json())
-  .catch(error => console.log('error', error));
- 
+async function products() {
+  try {
+    let response = await fetch(
+      "https://masters-prj.herokuapp.com/products",
+      requestOptions
+    );
+    response = await response.json();
+    return response.data;
+  } catch (error) {
+    return error;
+  }
+}
 
 export default products;
