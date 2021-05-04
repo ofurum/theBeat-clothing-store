@@ -24,6 +24,8 @@ const  LogoutButton = () => {
 
 const Navbar = ({ itemsCount, search, searchItem }) => {
 
+
+
 const username = localStorage.getItem("username")
 
 console.log({username})

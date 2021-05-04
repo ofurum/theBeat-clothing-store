@@ -232,7 +232,6 @@ const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InR1bmRlQGdtYWls
 // ];
 var myHeaders = new Headers();
       myHeaders.append("x-tag", "ODE1ZjM1YWZlNTI4Y2QwMThkNmJhMTI1NzNkMjk1YjRjZTdhZWUwODNmYzEyNTMzM2U2YThhZWM2YmIxZWFjZC8vLy8vLzc5NDY=");
-      myHeaders.append("Authorization",`Bearer ${token}`)
 
 
     var requestOptions = {
