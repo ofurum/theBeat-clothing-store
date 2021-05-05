@@ -7,7 +7,7 @@ import './women.page.styles.scss'
 const WomenPage = () => (
   <div className="Womenpage">
     <BaseLayout>
-      <h2 className="women-title">Women's Items</h2>
+      <h2 className="women-title">WOMEN'S ITEMS</h2>
       <Women />
     </BaseLayout>
   </div>

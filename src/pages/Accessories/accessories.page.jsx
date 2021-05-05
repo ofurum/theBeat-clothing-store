@@ -6,7 +6,7 @@ import BaseLayout from "../../components/BaseLayout/baseLayout.component";
 const AccessoriesPage = () => (
   <div className="accessories-page">
     <BaseLayout>
-      <h2 className="accessories-title">Accessories</h2>
+      <h2 className="accessories-title">ACCESSORIES</h2>
       <Accessories />
     </BaseLayout>
   </div>

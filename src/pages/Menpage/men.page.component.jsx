@@ -9,7 +9,7 @@ const MenPage = () => {
     return (
       <div className="Menpage">
         <BaseLayout>
-          <h2 className="men-title">Men's Items</h2>
+          <h2 className="men-title">MEN'S ITEMS</h2>
           <Men />
         </BaseLayout>
       </div>

@@ -9,7 +9,7 @@ const ClothesPage = () => {
   return (
     <div>
       <BaseLayout>
-        <h2 className="clothes-title" style={{textAlign:'center'}}>All clothes</h2>
+        <h2 className="clothes-title" style={{textAlign:'center'}}>CLOTHES</h2>
           <Clothes />
       </BaseLayout>
     </div>

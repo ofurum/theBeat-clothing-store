@@ -10,7 +10,7 @@ const Directory = () => {
   return(
       <div className="items-wrapper">
           <div className="items-title">
-            <h2>All Items</h2>
+            <h2>ALL ITEMS</h2>
           </div>
         <AllItems />
       </div>
