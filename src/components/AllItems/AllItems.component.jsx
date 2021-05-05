@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import { fetchProductData } from "../../redux/directory/directory.action"
 import { addItemToCart} from '../../redux/cart/cart.action'
+import Loading from "../Load/load.component"
 import './AllItems.styles.scss'
 
 

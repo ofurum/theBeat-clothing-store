@@ -9,7 +9,7 @@ const FormInput = ({ handleChange, label, ...otherProps }) => (
       onChange={handleChange}
       {...otherProps}
     /> */}
-   <TextField id="outlined-basic" label={label} variant="outlined" style={{width: '100%'}}/>
+   <TextField id="outlined-basic" label={label} variant="outlined" style={{width: '100%'}} onChange={handleChange} {...otherProps}/>
     {/* {label ? (
       <label
         className={`${
