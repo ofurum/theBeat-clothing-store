@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
 import { getAllProducts } from "../../redux/directory/directory.selector";
 import Card from '../Card/card.component'
+import Loading from '../../components/Load/load.component'
 import './men.styles.scss';
 
 
@@ -54,7 +55,7 @@ fetch("https://masters-prj.herokuapp.com/products?category=men", requestOptions)
   }
   else {
     return (
-      <>No Products available now</>
+      <Loading />
     )
   }
 }

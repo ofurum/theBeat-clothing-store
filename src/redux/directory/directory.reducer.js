@@ -13,13 +13,13 @@ const filterProduct = (state, {payload}) => {
     product.productName.toLowerCase().includes(payload.toLowerCase())
   )}
 }
-const directoryReducer = (state = INITIALIZE_STATE, action) => {
+const directoryReducer = (action,state = INITIALIZE_STATE,) => {
   //const search = state.products.filter(product => product.name.toLowerCase().includes(action.type))
-  if (action.type === directoryDataType.DIRECTORY_DATA) {
+  if (action.type === setProductData.SET_PRODUCT_DATA) {
     return {
       ...state,
-      products: state.products,
-    }
+      products: action.payload,
+    };
   };
   if(action.type === SearchProduct.SEARCH_PRODUCT){
     return filterProduct(state, action)

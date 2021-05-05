@@ -1,11 +1,8 @@
-import React,{useState,useEffect} from 'react';
+import React,{useEffect} from 'react';
 import { connect } from "react-redux";
-import { createStructuredSelector } from "reselect";
-import { getAllProducts } from "../../redux/directory/directory.selector"
 import { Link } from "react-router-dom";
-import { Icon } from "react-materialize";
 import { fetchProductData } from "../../redux/directory/directory.action"
-import {addItem, addItemToCart} from '../../redux/cart/cart.action'
+import { addItemToCart} from '../../redux/cart/cart.action'
 import './AllItems.styles.scss'
 
 
@@ -19,11 +16,11 @@ const AllItems = ({ addItemToCart,products,fetchProductData,addItem}) => {
     return (
       <div className="items">
         {
-          products.map((product) => (
-          <div key={product.id} className="item">
+          products.map((product,index) => (
+          <div key={index} className="item">
             <Link to={`/products/${product._id}`}>
               <div className="product-img">
-                <img alt={product.productName} src={product.productImages[0].url} />
+                <img alt={product.productName} src={product.productImages[0].url} style={{objectFit:'cover'}}/>
               </div>
               <div className="product-details">
                 <h1 id="product-name">{product.productName}</h1>
@@ -46,7 +43,7 @@ const AllItems = ({ addItemToCart,products,fetchProductData,addItem}) => {
     }
     else {
       return(
-        <>No products available</>
+         <Loading />
       )
     }
 }

@@ -1,5 +1,5 @@
-export const directoryDataType = {
-  DIRECTORY_DATA: "DIRECTORY_DATA",
+export const setProductData = {
+  SET_PRODUCT_DATA: " SET_PRODUCT_DATA",
 };
 
 export const SearchProduct = {

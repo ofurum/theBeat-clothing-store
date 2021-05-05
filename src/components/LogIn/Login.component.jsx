@@ -50,6 +50,7 @@ const handleSubmit = (e) => {
           localStorage.setItem("token", result.data.jwt)
           localStorage.setItem("username", result.data.user.username)
           setSignup(result.data)
+          localStorage.setItem("address", result.data.user.address)
           window.location.href="/"
           console.log(result)
         } else if (result.status === "error") {
