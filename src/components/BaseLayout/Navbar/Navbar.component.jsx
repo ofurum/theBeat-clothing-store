@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { Icon } from "react-materialize";
 import { NavLink } from "react-router-dom";
 import { createStructuredSelector } from "reselect";
@@ -24,6 +24,11 @@ const  LogoutButton = () => {
 
 const Navbar = ({ itemsCount, search, searchItem }) => {
 
+const [isClicked, setClicked] = useState(false);
+const closeMenu = () => setClicked(isClicked);
+const handleClick = () => {
+  setClicked(!isClicked)
+};
 
 
 const username = localStorage.getItem("username")
@@ -33,11 +38,22 @@ console.log({username})
 
 return (
   <nav className="navbar">
-    <div className="nav-links">
-      <ul>
+    <div className="nav-mobile" onClick={handleClick}>
+      {isClicked ? (
+        <span style={{ color: "white" }}>
+          <i className="fas fa-times fa-2x"></i>
+        </span>
+      ) : (
+        <span>
+          <i class="fas fa-bars fa-2x"></i>
+        </span>
+      )}
+    </div>
+    <div className={isClicked ? "nav-mobile-view" : "nav-links"}>
+      <ul className="mobile-list">
         <li>
           <NavLink activeClassName="selected" className="nav-link" exact to="/">
-            Home 
+            Home
           </NavLink>
         </li>
         <li>
@@ -74,18 +90,18 @@ return (
       </div>
 
       <div className="user-account nav-login">
-      { username ?
-        <div className="logout">
-        <span className="no-wrap"> Hi, {username} </span>
-         <LogoutButton />
-        </div>
-        :
-        <NavLink to="/logIn">Account</NavLink>
-      }
+        {username ? (
+          <div className="logout">
+            <span className="no-wrap"> Hi, {username} </span>
+            <LogoutButton />
+          </div>
+        ) : (
+          <NavLink to="/logIn">Account</NavLink>
+        )}
       </div>
     </div>
   </nav>
-)};
+);};
 
 const mapStateToProps = createStructuredSelector({
   itemsCount: itemsCounted,

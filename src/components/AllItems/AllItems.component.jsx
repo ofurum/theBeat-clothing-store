@@ -32,6 +32,7 @@ const AllItems = ({ addItemToCart,products,fetchProductData,addItem}) => {
               <h5 id="product-price">${product.price}</h5>
               <span className="add-product">
                 <i
+        
                   className="fas fa-shopping-cart fa-2x"
                   onClick={() => addItemToCart(product)}
                 ></i>
