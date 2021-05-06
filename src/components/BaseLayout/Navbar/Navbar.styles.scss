@@ -8,6 +8,9 @@
   position: fixed;
   width: 100%;
   top: 0;
+   .nav-mobile{
+      display: none;
+   }
   .nav-links ul {
     display: flex;
     list-style: none;
