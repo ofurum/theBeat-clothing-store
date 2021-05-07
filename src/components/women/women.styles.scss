@@ -4,3 +4,13 @@
     justify-content: center;
     margin: 25px;
 }
+
+@media only screen and (max-width: 600px){
+     .women{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 0px;
+    grid-gap: 22px;
+}
+}

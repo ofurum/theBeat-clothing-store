@@ -13,7 +13,6 @@
         margin: .5em;
         padding: 1em;
         background-color: white;
-        transition: transform 300ms bounce;
          a{
              text-decoration: none;
              color: black
@@ -63,4 +62,74 @@
 
 
      }
+}
+
+
+@media only screen and (max-width: 600px){
+     .card{
+    display: flex;
+    flex-wrap: wrap;
+    grid-gap: 15px;
+    justify-content: center;
+     .item {
+        height: 30em;
+        width: 10em;
+        font-family: 'Quicksand', sans-serif;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        margin: 0em;
+        padding: 0em;
+        background-color: white;
+         a{
+             text-decoration: none;
+             color: black
+         }
+        img {
+            height: 16em;
+            // width:100%;
+        }
+        .product-details{
+             padding: 10px;
+            #product-name {
+                border-top: 1px solid lightgrey;
+                padding: 1em 0 0;
+                font-size: 0.9em;
+                font-family: 'Lato', sans-serif;
+                margin: .5em 0;
+                }
+
+            #product-description {
+                font-size: 0.7em;
+                font-family: 'Lato', sans-serif;
+                color: grey;
+                 font-weight: lighter;
+                 margin: 0;
+                 }
+
+        }
+
+        .price-add{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px;
+
+            i {
+                color: lightgrey;
+                transition: 0.5s;
+                font-size:20px ;
+                }
+
+                    i:hover {
+                    color: grey;
+                    transition: 0.5s;
+                    cursor: pointer;
+                    }
+
+        }
+
+
+     }
+}
 }
