@@ -54,3 +54,9 @@ $main-color: black;
   }
 
 }
+
+@media only screen and (max-width: 600px){
+   .group{
+       margin: 25px 0;
+   }
+}

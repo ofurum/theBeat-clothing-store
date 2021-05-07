@@ -1,26 +1,26 @@
-.login{
-    // margin-left: 27rem;
-    // margin-right: 27rem;
-    max-width: 398px;
-    margin: 156px auto 0;
+.login {
+  // margin-left: 27rem;
+  // margin-right: 27rem;
+  max-width: 398px;
+  margin: 156px auto 0;
 
-    .hello{
+  .hello {
     font-weight: 700;
     font-size: 28px;
     line-height: 35px;
     margin-bottom: 12px;
-    }
+  }
 
-    .text{
+  .text {
     font-weight: 400;
     font-size: 18px;
     line-height: 17px;
     max-width: 398px;
     margin-bottom: 31px;
     color: grey;
-    }
+  }
 
-    .forget-password{
+  .forget-password {
     display: flex;
     justify-content: flex-end;
     margin-top: -42px;
@@ -29,28 +29,50 @@
     font-weight: 500;
     font-size: 19px;
     line-height: 40px;
-    
-    a{
+
+    a {
+      text-decoration: none;
+      color: grey;
+    }
+  }
+
+  .login-button {
+    margin-top: 25px;
+  }
+
+  .session_change {
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+  }
+
+  .sign-up-link {
+    margin-left: 10px;
+    a {
+      text-decoration: none;
+      color: grey;
+    }
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .login {
+    width: 310px;
+
+    .forget-password {
+      display: flex;
+      justify-content: flex-end;
+      margin-top:-21px;
+      font-family: Gilroy;
+      font-style: normal;
+      font-weight: 500;
+      font-size: 19px;
+      line-height: 40px;
+
+      a {
         text-decoration: none;
-        color:grey
-    } 
+        color: grey;
+      }
     }
-
-    .login-button{
-        margin-top:25px
-    }
-
-    .session_change{
-        margin-top: 30px;
-        display: flex;
-        justify-content:center;
-    }
-
-     .sign-up-link{
-            margin-left: 10px;
-            a{
-                text-decoration: none;
-                color: grey
-            }
-        }
+  }
 }
