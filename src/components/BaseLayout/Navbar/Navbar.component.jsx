@@ -41,11 +41,11 @@ return (
     <div className="nav-mobile" onClick={handleClick}>
       {isClicked ? (
         <span style={{ color: "white" }}>
-          <i className="fas fa-times fa-2x"></i>
+          <i style={{ fontSize: "21px" }} className="fas fa-times"></i>
         </span>
       ) : (
         <span>
-          <i class="fas fa-bars fa-2x"></i>
+          <i class="fas fa-bars" style={{ fontSize: "21px" }}></i>
         </span>
       )}
     </div>
