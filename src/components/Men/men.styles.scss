@@ -4,64 +4,15 @@
     grid-gap: 20px;
     justify-content: center;
     margin: 25px;
-     .item {
-        height: 30em;
-        width: 20em;
-        font-family: 'Quicksand', sans-serif;
-        overflow: hidden;
-        display: flex;
-        flex-direction: column;
-        margin: .5em;
-        padding: 1em;
-        background-color: white;
-        transition: transform 300ms bounce;
-         a{
-             text-decoration: none;
-             color: black
-         }
-        img {
-            height: 20em;
-            width:100%;
-        }
-        .product-details{
-             
-            #product-name {
-                border-top: 1px solid lightgrey;
-                padding: 1em 0 0;
-                font-size: 1.5em;
-                font-family: 'Lato', sans-serif;
-                margin: .5em 0;
-                }
+    
+}
 
-            #product-description {
-                font-size: 1em;
-                font-family: 'Lato', sans-serif;
-                color: grey;
-                 font-weight: lighter;
-                 margin: 0;
-                 }
-
-        }
-
-        .price-add{
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-
-
-            i {
-                color: lightgrey;
-                transition: 0.5s;
-                }
-
-                    i:hover {
-                    color: grey;
-                    transition: 0.5s;
-                    cursor: pointer;
-                    }
-
-        }
-
-
-     }
+@media only screen and (max-width: 600px){
+     .men{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 0px;
+    grid-gap: 22px;
+}
 }
