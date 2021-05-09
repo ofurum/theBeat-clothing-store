@@ -2,7 +2,7 @@ import { createSelector } from "reselect";
 
 const getProducts = (state) => state.directory
  
-const getSearch = (state) => state.search;
+// const getSearch = (state) => state.search;
 
 export const getAllProducts = createSelector(
     [getProducts],

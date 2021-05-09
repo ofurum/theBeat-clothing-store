@@ -5,7 +5,7 @@ import "./footer.styles.scss";
 
 const Footer = () => (
   <div className="footer">
-    <p>© 2021 JIMOH-DAODU SUCCESS</p>
+    <p>© 2021 Thebeat Commerce</p>
   </div>
 );
 

@@ -1,17 +1,17 @@
 import React,{useState,useEffect} from 'react';
 import { connect } from "react-redux";
 import { addItem } from "../../redux/cart/cart.action";
-import CustomButton from '../../components/CustomButton/customButton.component'
+// import CustomButton from '../../components/CustomButton/customButton.component'
 import { createStructuredSelector } from "reselect";
 import { getAllProducts } from "../../redux/directory/directory.selector";
 import BaseLayout from "../../components/BaseLayout/baseLayout.component";
-import Loading from '../../components/Load/load.component'
+// import Loading from '../../components/Load/load.component'
 import './showProduct.styles.scss';
 
 
 const ShowProduct = ({match, addItem}) => {   
   const token = localStorage.getItem("token")    
-const [products,setProducts] = useState("")
+// const [products,setProducts] = useState("")
 const [currentProduct, setCurrentProduct] = useState(false)
 useEffect(()=>{
     var myHeaders = new Headers();
@@ -32,7 +32,7 @@ useEffect(()=>{
         setCurrentProduct(result.data)
     })
     .catch(error => console.log('error', error));
-},[])
+},[token,match.params.id])
     
     
     return (

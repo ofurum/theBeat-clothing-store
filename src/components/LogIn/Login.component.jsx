@@ -58,7 +58,7 @@ const handleSubmit = (e) => {
         }
       })
       .catch(error => console.log('error', error));
-    console.log({userDetails})
+    console.log({userDetails},mapDispatchToProps)
   };
 
      const { email, password } = userDetails;

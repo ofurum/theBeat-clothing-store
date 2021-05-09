@@ -8,10 +8,11 @@ import './AllItems.styles.scss'
 
 
 const AllItems = ({ addItemToCart,products,fetchProductData,addItem}) => {
-    const xTag = localStorage.getItem("x-tag")
+  console.log(mapDispatchToProps)
+  // const xTag = localStorage.getItem("x-tag")
     useEffect(()=>{
       fetchProductData()
-  },[])
+  },[fetchProductData])
 
     if (products){
     return (

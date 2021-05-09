@@ -10,9 +10,9 @@ export function fetchIntilize() {
             
               localStorage.setItem("x-tag", data["x-tag"])
               dispatch(setFetchedIntilize(data));
-         }catch(error){{
+         }catch(error){
              console.log(error)
-         }}  
+         }
        };
 
 }

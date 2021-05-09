@@ -1,5 +1,5 @@
 //  import products from '../../Data/data'
- import {directoryDataType, SearchProduct, saveProductsData} from './directory.types'
+ import { SearchProduct, saveProductsData} from './directory.types'
 
 
 

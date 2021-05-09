@@ -29,7 +29,7 @@ fetch("https://masters-prj.herokuapp.com/products?category=clothing", requestOpt
     setProducts(result.data)
   })
   .catch(error => console.log('error', error));
-  },[])
+  },[token,xTag])
   if(products){
   return(
   <div>

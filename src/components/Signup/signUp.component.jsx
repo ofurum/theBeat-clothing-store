@@ -21,6 +21,7 @@ const SignUp = ({ setSignup }) => {
   const [successMessage, setSuccessMessage] = useState(false);
 
   const [isSubmitting, setIsSubmitting] = useState(false);
+  console.log(mapDispatchToProps)
 
   const handleSubmit = (e) => {
     e.preventDefault();

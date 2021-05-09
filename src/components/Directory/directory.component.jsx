@@ -1,7 +1,4 @@
 import React from 'react'
-import { connect } from "react-redux";
-import { createStructuredSelector } from "reselect";
-import { getAllProducts } from "../../redux/directory/directory.selector";
 import AllItems from '../AllItems/AllItems.component'
 import './directory.styles.scss'
 

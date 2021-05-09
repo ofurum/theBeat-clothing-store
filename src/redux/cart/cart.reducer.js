@@ -1,6 +1,6 @@
 import {CARTTYPE} from '../cart/cart.types'
 
-import { addItemToCart, removeProductFromCart } from "./cart.utiles";
+import { addItemToCart } from "./cart.utiles";
 
 const INITIALIZE_STATE = {
   cartItems: [],

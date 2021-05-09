@@ -29,7 +29,7 @@ fetch("https://masters-prj.herokuapp.com/products?category=Accessories", request
     setProducts(result.data)
   })
   .catch(error => console.log('error', error));
-  },[])
+  },)
   if(products){
   return(
   <div>

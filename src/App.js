@@ -2,7 +2,7 @@ import React,{useEffect} from 'react';
 // import './App.css';
 import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
-import { Switch, Route, Redirect } from "react-router-dom";
+import { Switch, Route } from "react-router-dom";
 import HomePage from './pages/homepage/hompage.pages'
 import ShowProduct from '../src/components/ShowProduct/showProduct.component'
 import MenPage from '../src/pages/Menpage/men.page.component'
@@ -20,7 +20,7 @@ const App = ({ data, fetchIntilize }) => {
   useEffect(() => {
     const xTag = fetchIntilize();
     return xTag;
-  }, []);
+  },);
 
   return (
     <div className="App">

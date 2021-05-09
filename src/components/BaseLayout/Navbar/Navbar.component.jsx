@@ -1,11 +1,8 @@
 import React, {useState} from 'react';
-import { Icon } from "react-materialize";
 import { NavLink } from "react-router-dom";
 import { createStructuredSelector } from "reselect";
 import { itemsCounted } from "../../../redux/cart/cart.selector";
 import {searchItems} from '../../../redux/directory/directory.selector'
-import TextField from "@material-ui/core/TextField";
-import {Autocomplete} from "@material-ui/lab";
 import { connect } from "react-redux"
 import {search} from '../../../redux/directory/directory.action'
 import './Navbar.styles.scss'
@@ -25,16 +22,13 @@ const  LogoutButton = () => {
 const Navbar = ({ itemsCount, search, searchItem }) => {
 
 const [isClicked, setClicked] = useState(false);
-const closeMenu = () => setClicked(isClicked);
+// const closeMenu = () => setClicked(isClicked);
 const handleClick = () => {
   setClicked(!isClicked)
 };
 
 
 const username = localStorage.getItem("username")
-
-console.log({username})
-
 
 return (
   <nav className="navbar">
